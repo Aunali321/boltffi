@@ -581,7 +581,7 @@ fn generate_factory_constructor_export(
                 match #call {
                     Ok(value) => Box::into_raw(Box::new(value)),
                     Err(error) => {
-                        ::boltffi::__private::set_last_error(format!("{error:?}"));
+                        ::boltffi::__private::set_last_error(format!("{error}"));
                         ::core::ptr::null_mut()
                     }
                 }
@@ -592,7 +592,7 @@ fn generate_factory_constructor_export(
                 match #call {
                     Ok(value) => Box::into_raw(Box::new(value)),
                     Err(error) => {
-                        ::boltffi::__private::set_last_error(format!("{error:?}"));
+                        ::boltffi::__private::set_last_error(format!("{error}"));
                         ::core::ptr::null_mut()
                     }
                 }

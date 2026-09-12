@@ -421,7 +421,7 @@ fn generate_value_return_export(
             match #call_expr {
                 Ok(value) => value,
                 Err(error) => {
-                    ::boltffi::__private::set_last_error(format!("{error:?}"));
+                    ::boltffi::__private::set_last_error(format!("{error}"));
                     return #on_error;
                 }
             }
