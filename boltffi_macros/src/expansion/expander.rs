@@ -987,7 +987,10 @@ mod tests {
             .expect("all surfaces expand");
         let rendered = tokens.to_string();
 
-        assert!(rendered.contains("# [cfg (not (target_arch = \"wasm32\"))]"));
+        assert!(
+            rendered
+                .contains("# [cfg (any (not (target_arch = \"wasm32\") , target_os = \"wasi\"))]")
+        );
         assert!(rendered.contains("# [cfg (target_arch = \"wasm32\")]"));
         assert!(rendered.contains("mod __boltffi_native"));
         assert!(rendered.contains("mod __boltffi_wasm32"));
